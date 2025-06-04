@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+
+.chat-message-markdown{
+    font-size: 16px;
+}
+.chat-layout {
+    border-radius: 20px;
+    border: 1px solid #111331 !important;
+}
+.chat-window {
+    border-radius: 20px;
+    border: none !important;
+}
+
+.chat-window-wrapper .chat-window-toggle{
+    background-color: #111331 !important;
+}
