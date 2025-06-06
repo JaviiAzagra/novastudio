@@ -1,3 +1,53 @@
+---
+const planes = [
+  {
+    nombre: "Starter",
+    precio: "€499",
+    caracteristicas: [
+      "✓ Landing page personalizada",
+      "✓ Diseño responsivo",
+      "✓ Formulario de contacto",
+      "✓ Entrega en 5–7 días",
+    ],
+    cta: "Elegir plan",
+  },
+  {
+    nombre: "Growth",
+    precio: "€1199",
+    caracteristicas: [
+      "✓ Sitio completo (hasta 5 secciones)",
+      "✓ Diseño UI/UX profesional",
+      "✓ Automatización básica (n8n)",
+      "✓ Soporte por 30 días",
+    ],
+    destacado: true,
+    cta: "Elegir plan",
+  },
+  {
+    nombre: "Scale",
+    precio: "€2499",
+    caracteristicas: [
+      "✓ Web avanzada + CMS editable",
+      "✓ Automatizaciones personalizadas",
+      "✓ Consultoría de marca",
+      "✓ Soporte 3 meses",
+    ],
+    cta: "Elegir plan",
+  },
+  {
+    nombre: "Custom",
+    precio: "A medida",
+    caracteristicas: [
+      "✓ Funcionalidades a medida",
+      "✓ Integración con APIs",
+      "✓ Reuniones 1:1 durante el proyecto",
+      "✓ Asesoría completa",
+    ],
+    cta: "Solicitar propuesta",
+  },
+];
+---
+
 <section id="planes" class="py-16">
   <div class="max-w-7xl mx-auto px-4 text-center">
     <h2 class="text-4xl font-bold mb-4">Nuestros Planes</h2>
@@ -7,81 +57,31 @@
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Plan Starter -->
-      <div
-        class="flex flex-col justify-between border rounded-2xl p-6 shadow hover:shadow-lg transition"
-      >
-        <h3 class="text-xl font-semibold mb-2">Starter</h3>
-        <p class="text-2xl font-bold text-indigo-600 mb-4">€499</p>
-        <ul class="text-left space-y-2 text-sm text-gray-700 mb-6">
-          <li>✓ Landing page personalizada</li>
-          <li>✓ Diseño responsivo</li>
-          <li>✓ Formulario de contacto</li>
-          <li>✓ Entrega en 5–7 días</li>
-        </ul>
-        <a
-          href="#"
-          class="block w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
-          >Elegir plan</a
-        >
-      </div>
-
-      <!-- Plan Growth -->
-      <div
-        class="flex flex-col justify-between border rounded-2xl p-6 shadow-lg ring-2 ring-indigo-500"
-      >
-        <h3 class="text-xl font-semibold mb-2">Growth</h3>
-        <p class="text-2xl font-bold text-indigo-600 mb-4">€1199</p>
-        <ul class="text-left space-y-2 text-sm text-gray-700 mb-6">
-          <li>✓ Sitio completo (hasta 5 secciones)</li>
-          <li>✓ Diseño UI/UX profesional</li>
-          <li>✓ Automatización básica (n8n)</li>
-          <li>✓ Soporte por 30 días</li>
-        </ul>
-        <a
-          href="#"
-          class="block w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
-          >Elegir plan</a
-        >
-      </div>
-
-      <!-- Plan Scale -->
-      <div
-        class="flex flex-col justify-between border rounded-2xl p-6 shadow hover:shadow-lg transition"
-      >
-        <h3 class="text-xl font-semibold mb-2">Scale</h3>
-        <p class="text-2xl font-bold text-indigo-600 mb-4">€2499</p>
-        <ul class="text-left space-y-2 text-sm text-gray-700 mb-6">
-          <li>✓ Web avanzada + CMS editable</li>
-          <li>✓ Automatizaciones personalizadas</li>
-          <li>✓ Consultoría de marca</li>
-          <li>✓ Soporte 3 meses</li>
-        </ul>
-        <a
-          href="#"
-          class="block w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
-          >Elegir plan</a
-        >
-      </div>
-
-      <!-- Plan Custom -->
-      <div
-        class="flex flex-col justify-between border rounded-2xl p-6 shadow hover:shadow-lg transition"
-      >
-        <h3 class="text-xl font-semibold mb-2">Custom</h3>
-        <p class="text-2xl font-bold text-indigo-600 mb-4">A medida</p>
-        <ul class="text-left space-y-2 text-sm text-gray-700 mb-6">
-          <li>✓ Funcionalidades a medida</li>
-          <li>✓ Integración con APIs</li>
-          <li>✓ Reuniones 1:1 durante el proyecto</li>
-          <li>✓ Asesoría completa</li>
-        </ul>
-        <a
-          href="#"
-          class="block w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
-          >Solicitar propuesta</a
-        >
-      </div>
+      {
+        planes.map((plan) => (
+          <div
+            class={`flex flex-col justify-between border rounded-2xl p-6 ${
+              plan.destacado
+                ? "shadow-lg ring-2 ring-indigo-500"
+                : "shadow hover:shadow-lg transition"
+            }`}
+          >
+            <h3 class="text-xl font-semibold mb-2">{plan.nombre}</h3>
+            <p class="text-2xl font-bold text-indigo-600 mb-4">{plan.precio}</p>
+            <ul class="text-left space-y-2 text-sm text-gray-700 mb-6">
+              {plan.caracteristicas.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <a
+              href="#"
+              class="block w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+            >
+              {plan.cta}
+            </a>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

@@ -7,20 +7,28 @@
     <meta name="generator" content={Astro.generator} />
     <title>NovaStudio</title>
     <!-- n8n Chat CSS -->
-    <link
+    <!-- <link
       href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css"
       rel="stylesheet"
-    />
+    /> -->
   </head>
   <body>
     <slot />
 
+    <script is:raw src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"
+    ></script>
+    <script
+      is:raw
+      src="https://files.bpcontent.cloud/2025/06/05/14/20250605142809-8FW1RDKN.js"
+    ></script>
+
     <!-- n8n Chat Script -->
-    <script type="module">
+    <!--     <script type="module">
       import { createChat } from "https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js";
 
       createChat({
         webhookUrl:
+          //"http://192.168.1.45:5678/webhook/aa9aaa43-7b84-46d3-a195-80e103120d5f/chat",
           "https://javiazagra.app.n8n.cloud/webhook/aa9aaa43-7b84-46d3-a195-80e103120d5f/chat",
         webhookConfig: {
           method: "POST",
@@ -44,7 +52,7 @@
           },
         },
       });
-    </script>
+    </script> -->
   </body>
 </html>
 
